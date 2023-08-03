@@ -3,7 +3,7 @@ variable "fruit_name" {
   default = "apple"
 }
 
-output "fruitname" {
+output "fruit_name" {
   value = var.fruit_name
 }
 
@@ -40,7 +40,11 @@ variable "fruit_with_stock_price" {
 
 # Access a list Variable List index start from 0
 
-output "fruits_list" {
+output "fruits_first" {
+  value = var.fruits[0]
+}
+output "second" {
   value = var.fruits[1]
 }
+
 
