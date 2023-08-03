@@ -1,6 +1,6 @@
 # Plain Variable
 variable "fruit_name" {
-  default = "apple"
+  default = "berry"
 }
 
 output "fruit_name" {
@@ -55,4 +55,25 @@ output "fruit_stock_apple" {
 
 output "fruit_stock_with_price_banana" {
   value = var.fruit_with_stock_price["banana"].price
+}
+
+# Variable data types
+variable "fruit_details" {
+  default = {
+    apple = {
+      stock = 100 #number
+      type = "washington" #string
+      for_sale = true #boolean
+    }
+  }
+}
+
+#variable in a combination of any other strings then it needs to be within ${}
+
+output "fruit_name_1" {
+  value = "Fruit_name = ${var.fruit_name}"
+}
+
+output "fruit_details_apple" {
+  value = "Apple stock = ${var.fruit_details["apple"].stock}, Apple type = ${var.fruit_details["apple"].type}, Apple sale status = ${var.fruit_details["apple"].for_sale}"
 }
