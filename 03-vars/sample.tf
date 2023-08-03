@@ -42,6 +42,7 @@ variable "fruit_with_stock_price" {
 
 output "fruit_first" {
   value = var.fruits[0]
+#  value = element(var.fruits, 0)
 }
 output "fruit_second" {
   value = var.fruits[1]
