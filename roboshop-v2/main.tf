@@ -45,8 +45,8 @@ resource "aws_instance" "instance" {
 #  ttl     = 30
 #  records = [lookup(aws_instance.instance, each.key[""] )]
 #}
-
-output "instance" {
-  value = aws_instance.instance
-}
+#
+#output "instance" {
+#  value = aws_instance.instance
+#}
 
