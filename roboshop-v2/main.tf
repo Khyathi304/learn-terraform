@@ -46,7 +46,7 @@ resource "aws_instance" "instance" {
 #  records = [lookup(aws_instance.instance, each.key[""] )]
 #}
 
-#output "instance" {
-#  value = aws_instance.instance
-#}
+output "instance" {
+  value = aws_instance.instance
+}
 
