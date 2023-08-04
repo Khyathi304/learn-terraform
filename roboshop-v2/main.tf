@@ -33,20 +33,21 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids = var.security_groups
 
   tags = {
-    Name = lookup(each.value, "name", "null" )
+    Name = lookup(each.value, "name", null)
   }
 }
 
-#resource "aws_route53_record" "record" {
-#  for_each = var.zone_id
-#  zone_id = var.zone_id
-#  name    = "frontend-dev.kdevops304.online"
-#  type    = "A"
-#  ttl     = 30
-#  records = [lookup(aws_instance.instance, each.key[""] )]
-#}
-#
-#output "instance" {
-#  value = aws_instance.instance
-#}
+resource "aws_route53_record" "record" {
+  for_each = var.components
+  zone_id = var.zone_id
+  name    = "${lookup(each.value, "name", null)}.kdevops304.online"
+  type    = "A"
+  ttl     = 30
+  records = [lookup(lookup(aws_instance.instance, each.key, null ), "private_ip", null)]
+}
+
+
+output "instance" {
+  value = aws_instance.instance
+}
 
