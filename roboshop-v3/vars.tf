@@ -5,7 +5,7 @@ variable "zone_id" {
   default = "Z01685992MRA8PYOVXM0X"
 }
 
-variable "components" {
+variable "component" {
   default = {
     frontend = {
       name = "frontend"
