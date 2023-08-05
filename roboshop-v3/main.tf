@@ -1,4 +1,4 @@
-module "components" {
+module "component" {
 
   for_each              = var.component
 
