@@ -28,7 +28,7 @@ resource "null_resource" "ansible" {
     git pull
     sleep 30
     ansible-playbook -i "${var.name}-dev.kdevops304.online", main.yml
-    -e ansible_user=centos -e ansible_password=DevOps321 -e component=${var.name}
+    -e ansible_user=centos -e ansible_password=DevOps321 -e components=${var.name}
    EOF
   }
 }
